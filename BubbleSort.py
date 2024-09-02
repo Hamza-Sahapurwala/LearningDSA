@@ -21,7 +21,7 @@ for i in range(lengthofarray):
 
             swapped = True
     
-    if not swapped:
+    if not swapped: # * Basically if swapped is still false then breaks cause the array is sorted
         
         break
 
