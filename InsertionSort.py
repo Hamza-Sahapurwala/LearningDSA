@@ -21,14 +21,44 @@ for i in range(1, lengthofarray):
     
     insertvalueatindex = i
     
-    value = n.pop(i)
+    currentvalueofi = n.pop(i)
     
     for j in range(i - 1, -1, -1):
         
-        if n[j] > value:
+        if n[j] > currentvalueofi:
         
             insertvalueatindex = j
 
-    n.insert(insertvalueatindex, value)
+    n.insert(insertvalueatindex, currentvalueofi)
+
+print(n)
+
+# * As always the above program can be imporved by not popping and inserting (because of course doing those two things would lead to changing positions of other elements in the array)
+
+# * We can always shift places of the elements!!! (Who could have guessed?)
+
+n = [7, 12, 9, 11, 3]
+
+lengthofarray = len(n)
+
+for i in range(1, lengthofarray):
+
+    wheretoputvalueatindex = i
+
+    currentvalue = n[i]
+
+    for j in range(i - 1, -1, -1):
+
+        if n[j] > currentvalue:
+
+            n[j + 1] = n [j]
+
+            wheretoputvalueatindex = j
+        
+        else:
+    
+            break
+    
+    n[wheretoputvalueatindex] = currentvalue
 
 print(n)
