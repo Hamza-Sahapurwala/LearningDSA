@@ -17,9 +17,13 @@
 
 # * Sounds easy, right?...
 
-def partition(n, low, high):
+# * Think of this as we are moving an element to it's correct place
+
+# * Please refer this link for extra understanding: https://www.youtube.com/watch?v=-qOVVRIZzao
+
+def partition(low, high):
     
-    pivot = n[high]
+    pivot = n[high] # * In the first loop, we are giving the honour of pivot to the last element
 
     i = low - 1
 
@@ -35,7 +39,7 @@ def partition(n, low, high):
 
     return i + 1
 
-def quicksort(n, low = 0, high = None):
+def quicksort(low = 0, high = None): # * low represents the begginning of the list and high represents the end of the list
 
     if high is None:
     
@@ -43,15 +47,15 @@ def quicksort(n, low = 0, high = None):
 
     if low < high:
 
-        pivot_index = partition(n, low, high)
+        pivot_index = partition(low, high)
 
-        quicksort(n, low, pivot_index - 1) # * Yes this uses recursion
+        quicksort(low, pivot_index - 1) # * This sorts between start of array to the sorted element
 
-        quicksort(n, pivot_index + 1, high)
+        quicksort(pivot_index + 1, high) # * This sorts between the sorted element to the end of array 
 
 n = [11, 9, 7, 12, 3]
 
-quicksort(n)
+quicksort()
 
 print(n)
 
