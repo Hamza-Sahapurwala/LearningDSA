@@ -19,6 +19,8 @@
 
 # * This arrays works by counting how many times a no. repeats by taking the no. itself as a index in another array and then printing it in the desired order
 
+# ! This array works only for limited range(means that counting array should not be ridiculously bigger than given array) of non-negative integers values
+
 def countsort():
 
     count = [0] * (max(n) + 1) # * This array is related to O(k)and the whole basis of this algorithm
