@@ -63,7 +63,7 @@ int deleteAtFront(int* q, int* r, int* f){
             x = q[*f];
             *f=*r=-1;
         }
-        else if(*f==4){ 
+        else if(*f==4){ // * front wraps around to the other end of the array
             x=q[*f];
             *f=0;
         }
@@ -85,7 +85,7 @@ int deleteAtRear(int* q, int* r, int* f){
             x = q[*r];
             *f=*r=-1;
         }
-        else if(*r==0){
+        else if(*r==0){ // * rear wraps around to the other end of the array
             x=q[*r];
             *r=4;
         }
