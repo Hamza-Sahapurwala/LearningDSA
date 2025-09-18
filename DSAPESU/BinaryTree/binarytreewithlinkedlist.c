@@ -44,8 +44,8 @@ void inorderwithoutrecursion(t* root){
 void postorder_traversal(t* tree){ // * Left -> Right -> Root
     if(tree==NULL)
         return;
-    inorder_traversal(tree->llink);
-    inorder_traversal(tree->rlink);
+    postorder_traversal(tree->llink);
+    postorder_traversal(tree->rlink);
     printf("%d\n",tree->data);
 }
 
@@ -53,8 +53,8 @@ void preorder_traversal(t* tree){ // * Root -> Left -> Right
     if(tree==NULL)
         return;
     printf("%d\n",tree->data);
-    inorder_traversal(tree->llink);
-    inorder_traversal(tree->rlink);
+    preorder_traversal(tree->llink);
+    preorder_traversal(tree->rlink);
 }
 
 void preorderwithoutrecursion(t* root){
