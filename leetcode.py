@@ -748,28 +748,46 @@ print(n)
 
 # * https://leetcode.com/problems/add-strings/
 
-num1="408"
-num2="5"
-d={'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'0':0}
-s=''
-while len(num1)>len(num2):
-    num2='0'+num2
-while len(num1)<len(num2):
-    num1='0'+num1
-i=len(num1)-1
-carry=0
-c=0
-while i!=-1:
-    c=d[num1[i]]+d[num2[i]]+carry
-    carry=0
-    print(carry,c, s)
-    if c>9 and i==0:
-        s=str(c)+s
-        i-=1
-        continue 
-    elif c>9:
-        carry=c//10
-        c=c%10
-    s=str(c)+s
-    i-=1
-print(s)
+# num1="408"
+# num2="5"
+# d={'1':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'0':0}
+# s=''
+# while len(num1)>len(num2):
+#     num2='0'+num2
+# while len(num1)<len(num2):
+#     num1='0'+num1
+# i=len(num1)-1
+# carry=0
+# c=0
+# while i!=-1:
+#     c=d[num1[i]]+d[num2[i]]+carry
+#     carry=0
+#     print(carry,c, s)
+#     if c>9 and i==0:
+#         s=str(c)+s
+#         i-=1
+#         continue 
+#     elif c>9:
+#         carry=c//10
+#         c=c%10
+#     s=str(c)+s
+#     i-=1
+# print(s)
+
+# * https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/description/
+
+n=10
+s=0
+m=1
+a=n
+while a!=0:
+    d=a%10
+    print(d)
+    s+=d
+    m*=d
+    print(s,m)
+    a//=10
+if n%(s+m)==0:
+    print(True)
+else:
+    print(False)
