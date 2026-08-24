@@ -776,18 +776,30 @@ print(n)
 
 # * https://leetcode.com/problems/check-divisibility-by-digit-sum-and-product/description/
 
-n=10
-s=0
-m=1
-a=n
-while a!=0:
-    d=a%10
-    print(d)
-    s+=d
-    m*=d
-    print(s,m)
-    a//=10
-if n%(s+m)==0:
-    print(True)
-else:
-    print(False)
+# n=10
+# s=0
+# m=1
+# a=n
+# while a!=0:
+#     d=a%10
+#     print(d)
+#     s+=d
+#     m*=d
+#     print(s,m)
+#     a//=10
+# if n%(s+m)==0:
+#     print(True)
+# else:
+#     print(False)
+
+# * https://leetcode.com/problems/reverse-words-in-a-string/
+
+s="a good   example"
+s=s.strip()
+a=s.split(' ')
+a=a[::-1]
+s=''
+for i in a:
+    if i!='':
+        s+=i+' '
+print(s.strip())
