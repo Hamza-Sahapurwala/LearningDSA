@@ -794,12 +794,30 @@ print(n)
 
 # * https://leetcode.com/problems/reverse-words-in-a-string/
 
-s="a good   example"
-s=s.strip()
-a=s.split(' ')
-a=a[::-1]
-s=''
-for i in a:
-    if i!='':
-        s+=i+' '
-print(s.strip())
+# s="a good   example"
+# s=s.strip()
+# a=s.split(' ')
+# a=a[::-1]
+# s=''
+# for i in a:
+#     if i!='':
+#         s+=i+' '
+# print(s.strip())
+
+# * https://leetcode.com/problems/number-complement/description/
+
+num=4
+
+if num==1:
+    print(0)
+elif num==2 or num==0:
+    print(1)
+a=0
+j=0
+while num>0:
+    d=num%2
+    if d==0:
+        a+=(2**j)
+    num=num//2
+    j+=1
+print(a)
