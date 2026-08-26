@@ -806,18 +806,64 @@ print(n)
 
 # * https://leetcode.com/problems/number-complement/description/
 
-num=4
+# num=4
 
-if num==1:
+# if num==1:
+#     print(0)
+# elif num==2 or num==0:
+#     print(1)
+# a=0
+# j=0
+# while num>0:
+#     d=num%2
+#     if d==0:
+#         a+=(2**j)
+#     num=num//2
+#     j+=1
+# print(a)
+
+# * https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/
+
+a=5
+b=2
+c=8
+
+if a | b == c:
     print(0)
-elif num==2 or num==0:
-    print(1)
-a=0
-j=0
-while num>0:
-    d=num%2
-    if d==0:
-        a+=(2**j)
-    num=num//2
-    j+=1
-print(a)
+s1=''
+while a!=0:
+    d=a%2
+    s1=str(d)+s1
+    a//=2
+s2=''
+while b!=0:
+    d=b%2
+    s2=str(d)+s2
+    b//=2
+while len(s1)>len(s2):
+    s2='0'+s2
+while len(s2)>len(s1):
+    s1='0'+s1
+s3=''
+while c!=0:
+    d=c%2
+    s3=str(d)+s3
+    c//=2
+while len(s3)<len(s1):
+    s3='0'+s3
+while len(s3)>len(s2):
+    s2='0'+s2
+while len(s3)>len(s1):
+    s1='0'+s1
+i=len(s3)-1
+flip=0
+while i>-1:
+    if s3[i]=='1' and s1[i]=='0' and s2[i]=='0':
+        flip+=1
+    elif s3[i]=='0' and s1[i]=='1' and s2[i]=='1':
+        flip+=2
+    elif s3[i]=='0' and ((s1[i]=='1' and s2[i]=='0') or (s1[i]=='0' and s2[i]=='1')):
+        flip+=1
+        
+    i-=1
+print(flip)
