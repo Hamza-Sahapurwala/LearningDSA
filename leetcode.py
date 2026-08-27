@@ -824,46 +824,75 @@ print(n)
 
 # * https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/
 
-a=5
-b=2
-c=8
+# a=5
+# b=2
+# c=8
 
-if a | b == c:
-    print(0)
-s1=''
-while a!=0:
-    d=a%2
-    s1=str(d)+s1
-    a//=2
-s2=''
-while b!=0:
-    d=b%2
-    s2=str(d)+s2
-    b//=2
-while len(s1)>len(s2):
-    s2='0'+s2
-while len(s2)>len(s1):
-    s1='0'+s1
-s3=''
-while c!=0:
-    d=c%2
-    s3=str(d)+s3
-    c//=2
-while len(s3)<len(s1):
-    s3='0'+s3
-while len(s3)>len(s2):
-    s2='0'+s2
-while len(s3)>len(s1):
-    s1='0'+s1
-i=len(s3)-1
-flip=0
-while i>-1:
-    if s3[i]=='1' and s1[i]=='0' and s2[i]=='0':
-        flip+=1
-    elif s3[i]=='0' and s1[i]=='1' and s2[i]=='1':
-        flip+=2
-    elif s3[i]=='0' and ((s1[i]=='1' and s2[i]=='0') or (s1[i]=='0' and s2[i]=='1')):
-        flip+=1
+# if a | b == c:
+#     print(0)
+# s1=''
+# while a!=0:
+#     d=a%2
+#     s1=str(d)+s1
+#     a//=2
+# s2=''
+# while b!=0:
+#     d=b%2
+#     s2=str(d)+s2
+#     b//=2
+# while len(s1)>len(s2):
+#     s2='0'+s2
+# while len(s2)>len(s1):
+#     s1='0'+s1
+# s3=''
+# while c!=0:
+#     d=c%2
+#     s3=str(d)+s3
+#     c//=2
+# while len(s3)<len(s1):
+#     s3='0'+s3
+# while len(s3)>len(s2):
+#     s2='0'+s2
+# while len(s3)>len(s1):
+#     s1='0'+s1
+# i=len(s3)-1
+# flip=0
+# while i>-1:
+#     if s3[i]=='1' and s1[i]=='0' and s2[i]=='0':
+#         flip+=1
+#     elif s3[i]=='0' and s1[i]=='1' and s2[i]=='1':
+#         flip+=2
+#     elif s3[i]=='0' and ((s1[i]=='1' and s2[i]=='0') or (s1[i]=='0' and s2[i]=='1')):
+#         flip+=1
         
-    i-=1
-print(flip)
+#     i-=1
+# print(flip)
+
+# * https://leetcode.com/problems/set-matrix-zeroes/
+
+matrix=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+r=len(matrix)
+c=len(matrix[0])
+l=[]
+i=0
+j=0
+
+while i<r:
+    while j<c:
+        if matrix[i][j]==0:
+            l.append([i,j])
+        j+=1
+    i+=1
+    j=0
+
+a=[]
+for i in l:
+    matrix[i[0]]=[0 for b in range(c)]
+    a.append(i[1])
+
+
+for j in a:
+    for i in range(r):  
+        matrix[i][j]=0
+
+print(matrix)
