@@ -870,29 +870,45 @@ print(n)
 
 # * https://leetcode.com/problems/set-matrix-zeroes/
 
-matrix=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
-r=len(matrix)
-c=len(matrix[0])
-l=[]
-i=0
-j=0
+# matrix=[[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+# r=len(matrix)
+# c=len(matrix[0])
+# l=[]
+# i=0
+# j=0
 
-while i<r:
-    while j<c:
-        if matrix[i][j]==0:
-            l.append([i,j])
-        j+=1
-    i+=1
-    j=0
+# while i<r:
+#     while j<c:
+#         if matrix[i][j]==0:
+#             l.append([i,j])
+#         j+=1
+#     i+=1
+#     j=0
 
-a=[]
-for i in l:
-    matrix[i[0]]=[0 for b in range(c)]
-    a.append(i[1])
+# a=[]
+# for i in l:
+#     matrix[i[0]]=[0 for b in range(c)]
+#     a.append(i[1])
 
 
-for j in a:
-    for i in range(r):  
-        matrix[i][j]=0
+# for j in a:
+#     for i in range(r):  
+#         matrix[i][j]=0
 
-print(matrix)
+# print(matrix)
+
+# * https://leetcode.com/problems/factorial-trailing-zeroes/
+
+n=25
+zeros=0
+def sqrtoffive(a):
+    k=0
+    while a%5==0:
+        a//=5
+        k+=1
+    return k
+
+for i in range(1,n+1):
+    if i%5==0:
+        zeros+=sqrtoffive(i)
+print(zeros)  
