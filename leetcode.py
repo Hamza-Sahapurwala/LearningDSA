@@ -899,16 +899,37 @@ print(n)
 
 # * https://leetcode.com/problems/factorial-trailing-zeroes/
 
-n=25
-zeros=0
-def sqrtoffive(a):
-    k=0
-    while a%5==0:
-        a//=5
-        k+=1
-    return k
+# n=25
+# zeros=0
+# def sqrtoffive(a):
+#     k=0
+#     while a%5==0:
+#         a//=5
+#         k+=1
+#     return k
 
-for i in range(1,n+1):
-    if i%5==0:
-        zeros+=sqrtoffive(i)
-print(zeros)  
+# for i in range(1,n+1):
+#     if i%5==0:
+#         zeros+=sqrtoffive(i)
+# print(zeros)  
+
+# * https://leetcode.com/problems/find-peak-element/
+
+nums=[1,3,2,1]
+n=len(nums)
+if n==1:
+    print(0)
+a=-1
+b=0
+c=1 
+while c<len(nums):
+    if a==-1 and c!=n and nums[b]>nums[c]:
+        print(1,b) 
+    elif c==n and a!=-1 and nums[b]>nums[a]:
+        print(2,b)
+    elif nums[a]<nums[b] and nums[b]>nums[c]:
+        print(3,b)
+    a+=1
+    b+=1
+    c+=1
+print(b-2)
