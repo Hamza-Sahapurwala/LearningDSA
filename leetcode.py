@@ -915,21 +915,57 @@ print(n)
 
 # * https://leetcode.com/problems/find-peak-element/
 
-nums=[1,3,2,1]
-n=len(nums)
-if n==1:
-    print(0)
-a=-1
-b=0
-c=1 
-while c<len(nums):
-    if a==-1 and c!=n and nums[b]>nums[c]:
-        print(1,b) 
-    elif c==n and a!=-1 and nums[b]>nums[a]:
-        print(2,b)
-    elif nums[a]<nums[b] and nums[b]>nums[c]:
-        print(3,b)
-    a+=1
-    b+=1
-    c+=1
-print(b-2)
+# nums=[1,3,2,1]
+# n=len(nums)
+# if n==1:
+#     print(0)
+# a=-1
+# b=0
+# c=1 
+# while c<len(nums):
+#     if a==-1 and c!=n and nums[b]>nums[c]:
+#         print(1,b) 
+#     elif c==n and a!=-1 and nums[b]>nums[a]:
+#         print(2,b)
+#     elif nums[a]<nums[b] and nums[b]>nums[c]:
+#         print(3,b)
+#     a+=1
+#     b+=1
+#     c+=1
+# print(b-2)
+
+# * https://leetcode.com/problems/string-compression/?envType=study-plan-v2&envId=leetcode-75
+
+def numbertostring(a):
+    b=[]
+    while a>0:
+        b.append(str(a%10))
+        a//=10
+    return b[::-1]
+
+chars=["a","a","a","b","b","a","a"]
+d={}
+s=[]
+for i in range(len(chars)):
+    if chars[i] not in d:
+        d[chars[i]]=1
+        if i>0 and d[chars[i-1]]==1:
+            s.append(chars[i-1])
+            d.pop(chars[i-1])
+        elif i>0 and d[chars[i-1]]>1:
+            s.append(chars[i-1])
+            s.extend(numbertostring(d[chars[i-1]]))
+            d.pop(chars[i-1])
+    else:
+        d[chars[i]]+=1
+
+for i in d:
+    s.append(i)
+    if d[i]==1:
+        break
+    s.extend(numbertostring(d[i]))
+    
+chars.clear()
+for i in s:
+    chars.append(i)
+print(len(s))
